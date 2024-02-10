@@ -79,6 +79,12 @@ void Run()
             case "4":
                 ShowModules();
                 break;
+            case "5":
+                StartProcess();
+                break;
+            case "6":
+                KillProcess();
+                break;
 
         }
     }
@@ -172,5 +178,32 @@ void ShowModules()
     }
 
     Console.ReadLine();
+}
+
+void StartProcess()
+{
+    // Process.Start("notepad");
+    Process.Start(@"C:\Program Files\Google\Chrome\Application\chrome.exe", "https://wikipedia.org --incognito");
+    // Process.Start(@"C:\Users\silver\Desktop\testapp\x64\Debug\testapp.exe");
+}
+
+void KillProcess()
+{
+    Console.Write("Enter PID: ");
+    string input = Console.ReadLine();
+
+    try
+    {
+        int pid = int.Parse(input);
+
+        Process p = Process.GetProcessById(pid);
+
+        p.Kill();
+    }
+    catch (Exception ex)
+    {
+        ShowError(ex.Message);
+
+    }
 }
 
