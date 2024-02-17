@@ -194,26 +194,147 @@
 
 
 
-int i;
-List<Thread> threads = new List<Thread>();
+//int i;
+//List<Thread> threads = new List<Thread>();
 
-for (i = 0; i < 10; ++i)
-    threads.Add(new Thread(() => Console.WriteLine(i)));
+//for (i = 0; i < 10; ++i)
+//    threads.Add(new Thread(() => Console.WriteLine(i)));
 
-threads.ForEach(t => t.Start());
-
-    
+//threads.ForEach(t => t.Start());
 
 
 
 
 
 
+//void Run()
+//{
+//    Console.WriteLine($"Message from {Thread.CurrentThread.Name}");
+//}
+
+//Thread.CurrentThread.Name = "main";
+//Thread t = new Thread(Run)
+//{
+//    Name = "worker",
+//};
+
+//t.Start();
+//Run();
+
+//Console.ReadLine();
 
 
 
 
 
+
+
+//Thread t = new Thread(() => Console.ReadLine());
+
+//if (args.Length > 0)
+//    t.IsBackground = true;
+
+//t.Start();
+
+
+
+
+#endregion
+
+
+#region try/catch
+
+//void Run()
+//{
+//    throw new Exception("Test Exception");
+//}
+
+//try
+//{
+//    new Thread(Run).Start();
+//}
+//catch (Exception ex)
+//{
+//    Console.WriteLine($"ERROR: {ex.Message}");
+
+//}
+
+
+
+
+
+//void Run()
+//{
+//    try
+//    {
+//        throw new Exception("Test Exception");
+//    }
+//    catch (Exception ex)
+//    {
+//        Console.WriteLine($"ERROR: {ex.Message}");
+//    }
+//}
+
+//new Thread(Run).Start();
+
+
+#endregion
+
+
+#region Thread pooling, TPL (Task parallel library)
+
+
+// TPL  Task, Task<TResult>, Parallel, ValueTask<> ....
+// ThreadPool.QueueUserWorkItem
+// async delegates                  // доступно только в .NET Framework !!!
+// BackgroundWorker ....
+
+
+//void Run()
+//{
+//    Console.WriteLine("Vasia");
+//}
+
+////Task task = Task.Factory.StartNew(Run);
+////task.Wait();
+
+//await Task.Factory.StartNew(Run);
+
+
+
+
+
+using System.Net;
+
+//string DownloadPage(string url)
+//{
+//    WebClient client = new WebClient();
+//    return client.DownloadString(url);
+//}
+
+//// Console.WriteLine(DownloadPage(@"https://google.com"));
+
+//string url = @"https://google.com";
+//Task<string> task = Task.Factory.StartNew(() => DownloadPage(url));
+
+//string result = task.Result;                    // BLOCKING!!!
+
+//Console.WriteLine(result);
+
+
+
+
+
+
+
+//ThreadPool.QueueUserWorkItem(Run, "Vasia");
+
+//Console.ReadLine();
+
+//void Run(object? val)
+//{
+//    Console.WriteLine($"FROM POOL: {val}");
+//}
 
 
 
