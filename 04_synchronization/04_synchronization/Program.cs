@@ -321,7 +321,7 @@
 
 #region Signaling
 
-// TODO: ???
+// --- Monitor example #2
 
 //Pingator pingator = new Pingator();
 //ThreadManager tm1 = new ThreadManager("ping", pingator);
@@ -423,6 +423,64 @@
 //        }
 //    }
 //}
+
+
+
+
+// --- Monitor example #2
+
+//object locker = new object();
+
+//void first()
+//{
+//	try
+//	{
+//		Monitor.Enter(locker);
+
+//		for (int i = 1; i <= 10; i += 2)
+//		{
+//            Thread.Sleep(200);
+//            Console.WriteLine($" {i}");
+//			Monitor.Pulse(locker);
+//			Monitor.Wait(locker);
+//        }
+
+//	}
+//	finally
+//	{
+//        Monitor.Exit(locker);
+//    }
+//}
+
+//void second()
+//{
+//    try
+//    {
+//        Monitor.Enter(locker);
+
+//        for (int i = 0; i <= 10; i += 2)
+//        {
+//            Thread.Sleep(200);
+//            Console.WriteLine($" {i}");
+//            Monitor.Pulse(locker);
+//            Monitor.Wait(locker);
+//        }
+
+//    }
+//    finally
+//    {
+//        Monitor.Exit(locker);
+//    }
+//}
+
+//Thread t1 = new Thread(first);
+//Thread t2 = new Thread(second);
+
+//t2.Start();
+//Thread.Sleep(300);
+//t1.Start();
+
+
 
 
 
