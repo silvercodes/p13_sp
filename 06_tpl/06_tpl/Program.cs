@@ -88,8 +88,6 @@
 
 
 
-
-
 // === массив задач
 
 //long time = DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond;
@@ -353,70 +351,111 @@
 // --- Жёсткое прерывание таска
 
 
-CancellationTokenSource cts = new CancellationTokenSource();
-CancellationToken token = cts.Token;
+//CancellationTokenSource cts = new CancellationTokenSource();
+//CancellationToken token = cts.Token;
 
 
-Task t = new Task(() =>
-{
-    Task t1 = new Task(() =>
-    {
-        Thread.Sleep(5000);
-        throw new ArgumentException("ha-ha");
+//Task t = new Task(() =>
+//{
+//    Task t1 = new Task(() =>
+//    {
+//        Thread.Sleep(5000);
+//        throw new ArgumentException("ha-ha");
 
-    });
-    t1.Start();
+//    });
+//    t1.Start();
 
-    Task t2 = new Task(() =>
-    {
-        Thread.Sleep(7000);
-        throw new ArgumentException("ho-ho");
+//    Task t2 = new Task(() =>
+//    {
+//        Thread.Sleep(7000);
+//        throw new ArgumentException("ho-ho");
 
-    });
-    t2.Start();
-
-
-    for (int i = 0; i < 10; i++)
-    {
-        if (token.IsCancellationRequested)
-        {
-            token.ThrowIfCancellationRequested();
-            // throw new ArgumentException("ha-ha");
-        }
-
-        Console.WriteLine(i);
-        Thread.Sleep(1000);
-    }
-
-}, token);
+//    });
+//    t2.Start();
 
 
-try
-{
-    t.Start();
+//    for (int i = 0; i < 10; i++)
+//    {
+//        if (token.IsCancellationRequested)
+//        {
+//            token.ThrowIfCancellationRequested();
+//            // throw new ArgumentException("ha-ha");
+//        }
 
-    Console.ReadLine();
-    cts.Cancel();               // token ---> IsCancellationRequested
+//        Console.WriteLine(i);
+//        Thread.Sleep(1000);
+//    }
 
-    t.Wait();
-}
-catch (AggregateException aex)
-{
-    Console.WriteLine($"count = {aex.InnerExceptions.Count}");
-    foreach (Exception ex in aex.InnerExceptions)
-    {
-        if (ex is TaskCanceledException)
-            Console.WriteLine("Task cancelled...");
-        else
-            Console.WriteLine($"ERROR: {ex.Message}");
-    }
-}
+//}, token);
 
 
-Thread.Sleep(1000);
-Console.WriteLine(t.Status);
+//try
+//{
+//    t.Start();
 
-Console.ReadLine();
+//    Console.ReadLine();
+//    cts.Cancel();               // token ---> IsCancellationRequested
+
+//    t.Wait();
+//}
+//catch (AggregateException aex)
+//{
+//    Console.WriteLine($"count = {aex.InnerExceptions.Count}");
+//    foreach (Exception ex in aex.InnerExceptions)
+//    {
+//        if (ex is TaskCanceledException)
+//            Console.WriteLine("Task cancelled...");
+//        else
+//            Console.WriteLine($"ERROR: {ex.Message}");
+//    }
+//}
+
+
+//Thread.Sleep(1000);
+//Console.WriteLine(t.Status);
+
+//Console.ReadLine();
+
+
+
+
+
+// === Отмена цикла
+
+//using CancellationTokenSource cts = new CancellationTokenSource();
+//CancellationToken token = cts.Token;
+
+//List<int> nums = new List<int>() { 4, 1, 7, 3, 6, 9, 0 };
+
+//_ = Task.Run(() =>
+//{
+//    Thread.Sleep(1000);
+//    cts.Cancel();
+//});
+
+//try
+//{
+//    Parallel.ForEach(nums, new ParallelOptions() { CancellationToken = token }, n =>
+//    {
+//        Thread.Sleep(1000);
+//        Console.WriteLine(n);
+//    });
+//}
+//catch (Exception)
+//{
+//    Console.WriteLine("CANCELLED");
+//}
+
+
+
+
+
+
+
+
+
+
+
 
 
 

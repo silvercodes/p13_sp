@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34607.119
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "06_tpl", "06_tpl\06_tpl.csproj", "{04F10A3F-4DD8-439E-873B-F47109AFDA9D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "06_tpl", "06_tpl\06_tpl.csproj", "{04F10A3F-4DD8-439E-873B-F47109AFDA9D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "07_async_await", "07_async_await\07_async_await.csproj", "{281A7A23-B781-4E96-9503-B4D192E884ED}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{04F10A3F-4DD8-439E-873B-F47109AFDA9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{04F10A3F-4DD8-439E-873B-F47109AFDA9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{04F10A3F-4DD8-439E-873B-F47109AFDA9D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{281A7A23-B781-4E96-9503-B4D192E884ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{281A7A23-B781-4E96-9503-B4D192E884ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{281A7A23-B781-4E96-9503-B4D192E884ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{281A7A23-B781-4E96-9503-B4D192E884ED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
